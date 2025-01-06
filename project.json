@@ -1,0 +1,77 @@
+{
+  "name": "UnbilledInvoices_Dispatch",
+  "projectId": "35af4610-a4a0-4a23-b842-f1aec24c5477",
+  "description": "תהליך חשבונות עסקה - שולח למנהלים דוח עם פירוט כל חשבונות העסקה שטרם הופקו מתחילת שנת המס",
+  "main": "Main.xaml",
+  "dependencies": {
+    "RPA_Template": "[2024.11.8]",
+    "UiPath.Database.Activities": "[1.9.0]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "23.10.7.0",
+  "projectVersion": "1.0.1-alpha",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "workflowSerialization": "DataContract",
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "4998ed16-93c5-4526-8481-0a7e4c3b8b01",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Business Process Tests\\Main_TC_PlaceHolder.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "f5d3d28e-7700-445e-b47c-36f46fac713e",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Business Process Tests\\BuildDataTable_TC_PlaceHolder.xaml"
+      }
+    ],
+    "modernBehavior": true,
+    "saveToCloud": false
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "291b84c8-f90a-4cda-9d53-fe5afebc2aad",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {
+    "iconUrl": ".package/hms.png"
+  },
+  "targetFramework": "Windows"
+}
