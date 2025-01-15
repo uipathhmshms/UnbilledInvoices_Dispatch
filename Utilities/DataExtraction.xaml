@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1385,1016</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1137,1007</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DataExtraction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -181,7 +181,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">290,615 290,635</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:FilterDataTable sap2010:Annotation.AnnotationText="keeps only the rows with &quot;סטטוס&quot;=&quot;נרשם&quot;" DataTable="[io_dt_data]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="200,94" sap2010:WorkflowViewState.IdRef="FilterDataTable_6" OutputDataTable="[io_dt_data]" SelectColumnsMode="Keep">
+              <ui:FilterDataTable sap2010:Annotation.AnnotationText="keeps only the rows with &quot;סטטוס&quot;=&quot;נרשם&quot;" DataTable="[io_dt_data]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="334,192" sap2010:WorkflowViewState.IdRef="FilterDataTable_6" OutputDataTable="[io_dt_data]" SelectColumnsMode="Keep">
                 <ui:FilterDataTable.Filters>
                   <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                     <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
@@ -202,7 +202,7 @@
                     <InArgument x:TypeArguments="x:String">["שם לקוח"]</InArgument>
                     <InArgument x:TypeArguments="x:String">["קוד סעיף תקציבי"]</InArgument>
                     <InArgument x:TypeArguments="x:String">["סעיף תקציבי"]</InArgument>
-                    <InArgument x:TypeArguments="x:String">["סכום כולל במטבע עסקה"]</InArgument>
+                    <InArgument x:TypeArguments="x:String">["סכום חייב במע""מ במטבע עסקה"]</InArgument>
                     <InArgument x:TypeArguments="x:String">["תאריך פעילות"]</InArgument>
                   </scg:List>
                 </ui:FilterDataTable.SelectColumns>
@@ -221,7 +221,7 @@
                       <av:PointCollection x:Key="ConnectorLocation">290,744 290,765</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:MultipleAssign sap2010:Annotation.AnnotationText="change the column named &quot;billing method&quot; to &quot;שיטת חיוב&quot;&#xA;+&#xD;&#xA;change the column named &quot;קוד חשבון מנהל פרויקט&quot; to &quot;קוד מנהל פרויקט&quot;" DisplayName="Columns name adjusments" sap:VirtualizedContainerService.HintSize="434,109" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                  <ui:MultipleAssign sap2010:Annotation.AnnotationText="change the column named &quot;billing method&quot; to &quot;שיטת חיוב&quot;&#xA;+&#xA;change the column named &quot;קוד חשבון מנהל פרויקט&quot; to &quot;קוד מנהל פרויקט&quot;" DisplayName="Columns name adjusments" sap:VirtualizedContainerService.HintSize="434,109" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
