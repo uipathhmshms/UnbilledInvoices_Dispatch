@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1049,1823</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1137,1823</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Dispatch_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -267,7 +267,7 @@
                                 <av:PointCollection x:Key="ConnectorLocation">217,435.5 216,435.5 216,455.5</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:MultipleAssign sap2010:Annotation.AnnotationText="add to queue items datatable" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="MultipleAssign_12">
+                            <ui:MultipleAssign sap2010:Annotation.AnnotationText="add to queue items datatable" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,147" sap2010:WorkflowViewState.IdRef="MultipleAssign_12">
                               <ui:MultipleAssign.AssignOperations>
                                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_27">
@@ -278,7 +278,7 @@
                                       <InArgument x:TypeArguments="sd:DataRow" xml:space="preserve">[io_dt_dataForBulkAddQueueITems.Rows.Add(Newtonsoft.Json.JsonConvert.SerializeObject(
 dic_currentManagerReportDic),
 dt_currentManagerReportDt.RowCount,
-"LidorM@hms.co.il",
+"shlomi@hms.co.il",
 str_currentManagerName+"_"+str_currentManagerId+"_"+Now.ToString("dd/MM/yyyy")
 )]</InArgument>
                                     </ui:AssignOperation.Value>
@@ -310,7 +310,7 @@ str_currentManagerName+"_"+str_currentManagerId+"_"+Now.ToString("dd/MM/yyyy")
                                         <av:PointCollection x:Key="ConnectorLocation">217,636.5 216,636.5 216,656.5</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Sets current manager identifier to be current one &#xA;+&#xA;adjust the start position " DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,235" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
+                                    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Sets current manager identifier to be current one &#xA;+&#xA;adjust the start position " DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="434,109" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
                                       <ui:MultipleAssign.AssignOperations>
                                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                           <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_28">

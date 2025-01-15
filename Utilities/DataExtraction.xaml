@@ -192,6 +192,14 @@
                         <InArgument x:TypeArguments="x:String">["נרשם"]</InArgument>
                       </ui:FilterOperationArgument.Operand>
                     </ui:FilterOperationArgument>
+                    <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                      <ui:FilterOperationArgument.Column>
+                        <InArgument x:TypeArguments="x:String">["מנהל פרוייקט"]</InArgument>
+                      </ui:FilterOperationArgument.Column>
+                      <ui:FilterOperationArgument.Operand>
+                        <InArgument x:TypeArguments="x:String">["רדין רשף"]</InArgument>
+                      </ui:FilterOperationArgument.Operand>
+                    </ui:FilterOperationArgument>
                   </scg:List>
                 </ui:FilterDataTable.Filters>
                 <ui:FilterDataTable.SelectColumns>
