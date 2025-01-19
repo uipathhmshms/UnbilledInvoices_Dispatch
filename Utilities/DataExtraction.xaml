@@ -1,11 +1,11 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="DataExtraction" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<Activity mc:Ignorable="sap sap2010" x:Class="DataExtraction" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="io_dt_data" Type="InOutArgument(sd:DataTable)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1137,1007</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1439,1108</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DataExtraction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -45,6 +45,7 @@
       <x:String>UiPath.Excel</x:String>
       <x:String>UiPath.Excel.Activities.Business</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -112,9 +113,12 @@
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap2010:Annotation.AnnotationText="Connects to DB and retrieves the data,&#xA;Merge Invoices and Budget  data,&#xA;Filters and sorts the merges data" DisplayName="DataExtraction" sap:VirtualizedContainerService.HintSize="634,942" sap2010:WorkflowViewState.IdRef="Flowchart_4">
+  <Flowchart sap2010:Annotation.AnnotationText="Connects to DB and retrieves the data,&#xA;Merge Invoices and Budget  data,&#xA;Filters and sorts the merges data" DisplayName="DataExtraction" sap:VirtualizedContainerService.HintSize="644,1043" sap2010:WorkflowViewState.IdRef="Flowchart_4">
     <Flowchart.Variables>
       <Variable x:TypeArguments="ui:DatabaseConnection" Name="dbConn_connection" />
       <Variable x:TypeArguments="x:String" Name="str_connectionString" />
@@ -127,9 +131,10 @@
         <av:Point x:Key="ShapeLocation">80,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
         <av:PointCollection x:Key="ConnectorLocation">140,40 170,40 170,40.5 190,40.5</av:PointCollection>
-        <x:Double x:Key="Height">848</x:Double>
+        <x:Double x:Key="Height">949</x:Double>
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        <x:Double x:Key="Width">610</x:Double>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
@@ -145,7 +150,7 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:DatabaseDisconnect DatabaseConnection="[dbConn_connection]" DisplayName="Disconnect from Database" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_4" />
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_7">
+        <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_7">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">190,449</av:Point>
@@ -173,94 +178,135 @@
             </sap:WorkflowViewStateService.ViewState>
           </ui:JoinDataTables>
           <FlowStep.Next>
-            <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_8">
+            <FlowStep x:Name="__ReferenceID6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">190,521</av:Point>
-                  <av:Size x:Key="ShapeSize">200,94</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">290,615 290,635</av:PointCollection>
+                  <av:Point x:Key="ShapeLocation">73,521</av:Point>
+                  <av:Size x:Key="ShapeSize">434,214</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">290,735 290,755</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:FilterDataTable sap2010:Annotation.AnnotationText="keeps only the rows with &quot;סטטוס&quot;=&quot;נרשם&quot;" DataTable="[io_dt_data]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="334,192" sap2010:WorkflowViewState.IdRef="FilterDataTable_6" OutputDataTable="[io_dt_data]" SelectColumnsMode="Keep">
-                <ui:FilterDataTable.Filters>
-                  <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
-                    <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
-                      <ui:FilterOperationArgument.Column>
-                        <InArgument x:TypeArguments="x:String">["סטטוס"]</InArgument>
-                      </ui:FilterOperationArgument.Column>
-                      <ui:FilterOperationArgument.Operand>
-                        <InArgument x:TypeArguments="x:String">["נרשם"]</InArgument>
-                      </ui:FilterOperationArgument.Operand>
-                    </ui:FilterOperationArgument>
-                    <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
-                      <ui:FilterOperationArgument.Column>
-                        <InArgument x:TypeArguments="x:String">["מנהל פרוייקט"]</InArgument>
-                      </ui:FilterOperationArgument.Column>
-                      <ui:FilterOperationArgument.Operand>
-                        <InArgument x:TypeArguments="x:String">["רדין רשף"]</InArgument>
-                      </ui:FilterOperationArgument.Operand>
-                    </ui:FilterOperationArgument>
+              <ui:MultipleAssign sap2010:Annotation.AnnotationText="Keeps only rows with &quot;חשבונית מפגרת&quot; &#xD;&#xA;+&#xD;&#xA;Changes the column named &quot;billing method&quot; to &quot;שיטת חיוב&quot;&#xA;+&#xA;Changes the column named &quot;קוד חשבון מנהל פרויקט&quot; to &quot;קוד מנהל פרויקט&quot;&#xD;&#xA;+&#xD;&#xA;Keeps only the rows with &#xA;תאריך פעילות&#xA;from current year or previous one" DisplayName="Columns name adjusments" sap:VirtualizedContainerService.HintSize="434,214" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                    <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="sd:DataTable">[io_dt_data]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
+Let referenceDate As DateTime = If(row.IsNull("תאריך אסמכתא"), Nothing, row.Field(Of DateTime)("תאריך אסמכתא"))
+Let activiryDate As DateTime = If(row.IsNull("תאריך פעילות"), Nothing, row.Field(Of DateTime)("תאריך פעילות"))
+Let adjustedReferenceDate = If(activiryDate &lt;&gt; Nothing, activiryDate.AddMonths(1).AddDays(11), Nothing) ' הוספת חודש + 11 יום לתאריך 
+Let dueDate = If(adjustedReferenceDate &gt; referenceDate, True, False) 
+Where referenceDate &lt;&gt; Nothing AndAlso activiryDate &lt;&gt; Nothing AndAlso dueDate
+Select row).CopyToDataTable()]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[io_dt_data.Columns("billingMethod").ColumnName]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">שיטת חיוב</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[io_dt_data.Columns("קוד חשבון מנהל פרויקט").ColumnName]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">קוד מנהל פרויקט</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="sd:DataTable">[io_dt_data]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
+Let parsedDate = DateTime.ParseExact(row.Field(Of datetime)("תאריך פעילות").tostring, "MM/dd/yyyy hh:mm:ss", Nothing)
+Let currentYear As Integer = DateTime.Now.Year
+Let previousYear As Integer = currentYear - 1
+Where parsedDate.Year = currentYear OrElse 
+			parsedDate.Year = previousYear
+Select row).CopyToDataTable]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="sd:DataTable">[io_dt_data]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
+ Let status = row("סטטוס").ToString
+ Where status = "נרשם"
+ Select row).CopyToDataTable()]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
                   </scg:List>
-                </ui:FilterDataTable.Filters>
-                <ui:FilterDataTable.SelectColumns>
-                  <scg:List x:TypeArguments="InArgument" Capacity="8">
-                    <InArgument x:TypeArguments="x:String">["קוד חשבון מנהל פרויקט"]</InArgument>
-                    <InArgument x:TypeArguments="x:String">["מנהל פרוייקט"]</InArgument>
-                    <InArgument x:TypeArguments="x:String">["billingMethod"]</InArgument>
-                    <InArgument x:TypeArguments="x:String">["שם לקוח"]</InArgument>
-                    <InArgument x:TypeArguments="x:String">["קוד סעיף תקציבי"]</InArgument>
-                    <InArgument x:TypeArguments="x:String">["סעיף תקציבי"]</InArgument>
-                    <InArgument x:TypeArguments="x:String">["סכום חייב במע""מ במטבע עסקה"]</InArgument>
-                    <InArgument x:TypeArguments="x:String">["תאריך פעילות"]</InArgument>
-                  </scg:List>
-                </ui:FilterDataTable.SelectColumns>
+                </ui:MultipleAssign.AssignOperations>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-              </ui:FilterDataTable>
+              </ui:MultipleAssign>
               <FlowStep.Next>
                 <FlowStep x:Name="__ReferenceID7">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">73,635</av:Point>
-                      <av:Size x:Key="ShapeSize">434,109</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">290,744 290,765</av:PointCollection>
+                      <av:Point x:Key="ShapeLocation">190,755</av:Point>
+                      <av:Size x:Key="ShapeSize">200,83</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">290,838 290,866</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:MultipleAssign sap2010:Annotation.AnnotationText="change the column named &quot;billing method&quot; to &quot;שיטת חיוב&quot;&#xA;+&#xA;change the column named &quot;קוד חשבון מנהל פרויקט&quot; to &quot;קוד מנהל פרויקט&quot;" DisplayName="Columns name adjusments" sap:VirtualizedContainerService.HintSize="434,109" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
-                    <ui:MultipleAssign.AssignOperations>
-                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:String">[io_dt_data.Columns("billingMethod").ColumnName]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">שיטת חיוב</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:String">[io_dt_data.Columns("קוד חשבון מנהל פרויקט").ColumnName]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">קוד מנהל פרויקט</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
+                  <ui:FilterDataTable sap2010:Annotation.AnnotationText="" DataTable="[io_dt_data]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="FilterDataTable_7" OutputDataTable="[io_dt_data]" SelectColumnsMode="Keep">
+                    <ui:FilterDataTable.Filters>
+                      <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                        <ui:FilterOperationArgument BooleanOperator="And" Operator="LT">
+                          <ui:FilterOperationArgument.Column>
+                            <InArgument x:TypeArguments="x:String">["תאריך פעילות"]</InArgument>
+                          </ui:FilterOperationArgument.Column>
+                          <ui:FilterOperationArgument.Operand>
+                            <InArgument x:TypeArguments="s:DateTime">[Date.Today]</InArgument>
+                          </ui:FilterOperationArgument.Operand>
+                        </ui:FilterOperationArgument>
+                        <ui:FilterOperationArgument BooleanOperator="And" Operator="GT">
+                          <ui:FilterOperationArgument.Column>
+                            <InArgument x:TypeArguments="x:String">["סכום חייב במע""מ במטבע עסקה"]</InArgument>
+                          </ui:FilterOperationArgument.Column>
+                          <ui:FilterOperationArgument.Operand>
+                            <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
+                          </ui:FilterOperationArgument.Operand>
+                        </ui:FilterOperationArgument>
                       </scg:List>
-                    </ui:MultipleAssign.AssignOperations>
+                    </ui:FilterDataTable.Filters>
+                    <ui:FilterDataTable.SelectColumns>
+                      <scg:List x:TypeArguments="InArgument" Capacity="16">
+                        <InArgument x:TypeArguments="x:String">["קוד מנהל פרויקט"]</InArgument>
+                        <InArgument x:TypeArguments="x:String">["מנהל פרוייקט"]</InArgument>
+                        <InArgument x:TypeArguments="x:String">["שיטת חיוב"]</InArgument>
+                        <InArgument x:TypeArguments="x:String">["שם לקוח"]</InArgument>
+                        <InArgument x:TypeArguments="x:String">["קוד סעיף תקציבי"]</InArgument>
+                        <InArgument x:TypeArguments="x:String">["סעיף תקציבי"]</InArgument>
+                        <InArgument x:TypeArguments="x:String">["סכום חייב במע""מ במטבע עסקה"]</InArgument>
+                        <InArgument x:TypeArguments="x:String">["תאריך פעילות"]</InArgument>
+                        <InArgument x:TypeArguments="x:String">["תאריך אסמכתא"]</InArgument>
+                        <InArgument x:TypeArguments="x:String">["סטטוס"]</InArgument>
+                      </scg:List>
+                    </ui:FilterDataTable.SelectColumns>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                  </ui:MultipleAssign>
+                  </ui:FilterDataTable>
                   <FlowStep.Next>
-                    <FlowStep x:Name="__ReferenceID6" sap2010:WorkflowViewState.IdRef="FlowStep_9">
+                    <FlowStep x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_9">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">190,765</av:Point>
+                          <av:Point x:Key="ShapeLocation">190,866</av:Point>
                           <av:Size x:Key="ShapeSize">200,83</av:Size>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
@@ -401,9 +447,42 @@
         <x:Reference>__ReferenceID3</x:Reference>
       </FlowStep.Next>
     </FlowStep>
+    <FlowStep sap2010:WorkflowViewState.IdRef="FlowStep_8">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">410,408.5</av:Point>
+          <av:Size x:Key="ShapeSize">200,83</av:Size>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:FilterDataTable sap2010:Annotation.AnnotationText="" DataTable="[io_dt_data]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="FilterDataTable_6" OutputDataTable="[io_dt_data]" SelectColumnsMode="Keep">
+        <ui:FilterDataTable.Filters>
+          <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+            <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
+          </scg:List>
+        </ui:FilterDataTable.Filters>
+        <ui:FilterDataTable.SelectColumns>
+          <scg:List x:TypeArguments="InArgument" Capacity="16">
+            <InArgument x:TypeArguments="x:String">["קוד חשבון מנהל פרויקט"]</InArgument>
+            <InArgument x:TypeArguments="x:String">["מנהל פרוייקט"]</InArgument>
+            <InArgument x:TypeArguments="x:String">["billingMethod"]</InArgument>
+            <InArgument x:TypeArguments="x:String">["שם לקוח"]</InArgument>
+            <InArgument x:TypeArguments="x:String">["קוד סעיף תקציבי"]</InArgument>
+            <InArgument x:TypeArguments="x:String">["סעיף תקציבי"]</InArgument>
+            <InArgument x:TypeArguments="x:String">["סכום חייב במע""מ במטבע עסקה"]</InArgument>
+            <InArgument x:TypeArguments="x:String">["תאריך פעילות"]</InArgument>
+            <InArgument x:TypeArguments="x:String">["תאריך אסמכתא"]</InArgument>
+            <InArgument x:TypeArguments="x:String">["סטטוס"]</InArgument>
+          </scg:List>
+        </ui:FilterDataTable.SelectColumns>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:FilterDataTable>
+    </FlowStep>
     <x:Reference>__ReferenceID4</x:Reference>
     <x:Reference>__ReferenceID5</x:Reference>
-    <x:Reference>__ReferenceID6</x:Reference>
     <FlowStep sap2010:WorkflowViewState.IdRef="FlowStep_10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -414,6 +493,7 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:Comment sap:VirtualizedContainerService.HintSize="200,75" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// TODO retrieve manager emails" />
     </FlowStep>
+    <x:Reference>__ReferenceID6</x:Reference>
     <x:Reference>__ReferenceID7</x:Reference>
   </Flowchart>
 </Activity>
