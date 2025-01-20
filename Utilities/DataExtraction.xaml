@@ -1,11 +1,11 @@
-﻿<Activity mc:Ignorable="sap sap2010" x:Class="DataExtraction" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="DataExtraction" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="io_dt_data" Type="InOutArgument(sd:DataTable)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1137,1253</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1137,1456</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DataExtraction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -188,9 +188,7 @@
               </sap:WorkflowViewStateService.ViewState>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utilities\TEST.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Utilities\TEST.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="sd:DataTable" x:Key="In_dt">
-                    <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="io_dt_data" />
-                  </InArgument>
+                  <InArgument x:TypeArguments="sd:DataTable" x:Key="In_dt">[io_dt_data]</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -207,7 +205,7 @@
                       <av:PointCollection x:Key="ConnectorLocation">290,820 290,845</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:MultipleAssign sap2010:Annotation.AnnotationText=" &#xA;Changes the column named &quot;billing method&quot; to &quot;שיטת חיוב&quot;&#xA;+&#xA;Changes the column named &quot;קוד חשבון מנהל פרויקט&quot; to &quot;קוד מנהל פרויקט&quot;&#xA;+&#xA;Keeps only the rows with &#xA;תאריך פעילות&#xA;from current year or previous one" DisplayName="Columns name adjusments" sap:VirtualizedContainerService.HintSize="479,341" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                  <ui:MultipleAssign sap2010:Annotation.AnnotationText=" &#xA;Changes the column named &quot;billing method&quot; to &quot;שיטת חיוב&quot;&#xA;+&#xA;Changes the column named &quot;קוד חשבון מנהל פרויקט&quot; to &quot;קוד מנהל פרויקט&quot;&#xA;+&#xA;Keeps only the rows with &#xA;תאריך פעילות&#xA;from current year or previous one" DisplayName="Columns name adjusments" sap:VirtualizedContainerService.HintSize="479,372" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                         <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_11">
@@ -253,6 +251,17 @@ Let currentYear As Integer = DateTime.Now.Year
 Let previousYear As Integer = currentYear - 1
 Where parsedDate.Year = currentYear OrElse 
 			parsedDate.Year = previousYear
+Select row).CopyToDataTable]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="sd:DataTable">[io_dt_data]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
+Where row("קוד מנהל פרויקט").ToString="7100079" OrElse 
+ row("קוד מנהל פרויקט").tostring="7100367"  
 Select row).CopyToDataTable]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
@@ -370,7 +379,7 @@ Select row).CopyToDataTable]</InArgument>
           <av:PointCollection x:Key="ConnectorLocation">290,270 290,290</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Extract Invoices data from stored procedure" DataTable="[dt_InvoicesData]" DisplayName="Extract Invoices Data" ExistingDbConnection="[dbConn_connection]" sap:VirtualizedContainerService.HintSize="200,94" sap2010:WorkflowViewState.IdRef="ExecuteQuery_7" Sql="[&quot;USE [Halperin]; &quot; &amp; _&#xD;&#xA;&quot;DECLARE @return_value int; &quot; &amp; _&#xD;&#xA;&quot;EXEC @return_value = [dbo].[sp_Invoices_RPA]; &quot; &amp; _&#xD;&#xA;&quot;SELECT 'Return Value' = @return_value;&quot;]">
+      <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Extract Invoices data from stored procedure" DataTable="[dt_InvoicesData]" DisplayName="Extract Invoices Data" ExistingDbConnection="[dbConn_connection]" sap:VirtualizedContainerService.HintSize="200,94" sap2010:WorkflowViewState.IdRef="ExecuteQuery_7" Sql="[&quot;USE [Halperin]; &quot; &amp; _&#xA;&quot;DECLARE @return_value int; &quot; &amp; _&#xA;&quot;EXEC @return_value = [dbo].[sp_Invoices_RPA]; &quot; &amp; _&#xA;&quot;SELECT 'Return Value' = @return_value;&quot;]">
         <ui:ExecuteQuery.Parameters>
           <scg:Dictionary x:TypeArguments="x:String, Argument" />
         </ui:ExecuteQuery.Parameters>
