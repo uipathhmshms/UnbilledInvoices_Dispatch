@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1137,1253</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1137,1496</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DataExtraction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -188,9 +188,7 @@
               </sap:WorkflowViewStateService.ViewState>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utilities\TEST.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Utilities\TEST.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="sd:DataTable" x:Key="In_dt">
-                    <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="io_dt_data" />
-                  </InArgument>
+                  <InArgument x:TypeArguments="sd:DataTable" x:Key="In_dt">[io_dt_data]</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -216,13 +214,13 @@
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
                             <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
- Let referenceDate As DateTime? = If(row.IsNull("תאריך אסמכתא"), CType(Nothing, DateTime?), row.Field(Of DateTime)("תאריך אסמכתא"))
- Let activityDate As DateTime? = If(row.IsNull("תאריך פעילות"), CType(Nothing, DateTime?), row.Field(Of DateTime)("תאריך פעילות"))
- Let adjustedDate As DateTime? = If(activityDate.HasValue, New DateTime(activityDate.Value.Year, activityDate.Value.Month, 10), CType(Nothing, DateTime?))  ' יצירת תאריך חדש שבו היום הוא ה-10 של חודש התאריך פעילות
- Let nextMonthDate As DateTime? = If(adjustedDate.HasValue, adjustedDate.Value.AddMonths(1), CType(Nothing, DateTime?))  ' הוספת חודש לתאריך
- Let dueDate As Boolean = If(referenceDate.HasValue AndAlso nextMonthDate.HasValue, referenceDate.Value &gt; nextMonthDate.Value, False) ' השווה אם תאריך אסמכתא עבר את ה-1001 לחודש הבא
- Let isCurrentMonth As Boolean=nextMonthDate.Value.Month=Today.Month
- Where referenceDate.HasValue AndAlso activityDate.HasValue AndAlso (dueDate OrElse isCurrentMonth)
+ Let activityDate As DateTime =row.Field(Of DateTime)("תאריך פעילות")
+ Let taarichErech As DateTime =row.Field(Of DateTime)("תאריך ערך")
+ Let adjustedDate As DateTime =New DateTime(activityDate.Year, activityDate.Month, 10) ' יצירת תאריך חדש שבו היום הוא ה-10 של חודש התאריך פעילות
+ Let nextMonthDate As DateTime =adjustedDate.AddMonths(1) ' הוספת חודש לתאריך
+ Let dueDate As Boolean = taarichErech &gt;= nextMonthDate ' השווה אם תאריך ערך עבר את ה-10 לחודש הבא
+ Let isPreviousMonth As Boolean = taarichErech.Month = Today.AddMonths(-1).Month AndAlso taarichErech.Year = Today.AddMonths(-1).Year
+ Where (dueDate OrElse isPreviousMonth )
  Select row).CopyToDataTable()]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
@@ -370,7 +368,7 @@ Select row).CopyToDataTable]</InArgument>
           <av:PointCollection x:Key="ConnectorLocation">290,270 290,290</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Extract Invoices data from stored procedure" DataTable="[dt_InvoicesData]" DisplayName="Extract Invoices Data" ExistingDbConnection="[dbConn_connection]" sap:VirtualizedContainerService.HintSize="200,94" sap2010:WorkflowViewState.IdRef="ExecuteQuery_7" Sql="[&quot;USE [Halperin]; &quot; &amp; _&#xD;&#xA;&quot;DECLARE @return_value int; &quot; &amp; _&#xD;&#xA;&quot;EXEC @return_value = [dbo].[sp_Invoices_RPA]; &quot; &amp; _&#xD;&#xA;&quot;SELECT 'Return Value' = @return_value;&quot;]">
+      <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Extract Invoices data from stored procedure" DataTable="[dt_InvoicesData]" DisplayName="Extract Invoices Data" ExistingDbConnection="[dbConn_connection]" sap:VirtualizedContainerService.HintSize="200,94" sap2010:WorkflowViewState.IdRef="ExecuteQuery_7" Sql="[&quot;USE [Halperin]; &quot; &amp; _&#xA;&quot;DECLARE @return_value int; &quot; &amp; _&#xA;&quot;EXEC @return_value = [dbo].[sp_Invoices_RPA]; &quot; &amp; _&#xA;&quot;SELECT 'Return Value' = @return_value;&quot;]">
         <ui:ExecuteQuery.Parameters>
           <scg:Dictionary x:TypeArguments="x:String, Argument" />
         </ui:ExecuteQuery.Parameters>
