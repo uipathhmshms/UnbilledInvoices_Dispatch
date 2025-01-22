@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1137,1496</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1137,1456</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DataExtraction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -214,13 +214,9 @@
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
                             <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
- Let activityDate As DateTime =row.Field(Of DateTime)("תאריך פעילות")
- Let taarichErech As DateTime =row.Field(Of DateTime)("תאריך ערך")
- Let adjustedDate As DateTime =New DateTime(activityDate.Year, activityDate.Month, 10) ' יצירת תאריך חדש שבו היום הוא ה-10 של חודש התאריך פעילות
- Let nextMonthDate As DateTime =adjustedDate.AddMonths(1) ' הוספת חודש לתאריך
- Let dueDate As Boolean = taarichErech &gt;= nextMonthDate ' השווה אם תאריך ערך עבר את ה-10 לחודש הבא
- Let isPreviousMonth As Boolean = taarichErech.Month = Today.AddMonths(-1).Month AndAlso taarichErech.Year = Today.AddMonths(-1).Year
- Where (dueDate OrElse isPreviousMonth )
+     Let taarichErech As DateTime =row.Field(Of DateTime)("תאריך ערך")
+	 Let dueDate As Boolean  = taarichErech &gt;=Today.AddMonths(-2) 
+ Where  dueDate
  Select row).CopyToDataTable()]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
