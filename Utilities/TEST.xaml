@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1439,827</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1137,1312</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>TEST_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -100,13 +100,73 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TEST" sap:VirtualizedContainerService.HintSize="626,737" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TEST" sap:VirtualizedContainerService.HintSize="639,1247" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="564,626" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="577,470" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="541,391" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MultipleAssign sap2010:Annotation.AnnotationText=" &#xA;Changes the column named &quot;billing method&quot; to &quot;שיטת חיוב&quot;&#xA;+&#xA;Changes the column named &quot;קוד חשבון מנהל פרויקט&quot; to &quot;קוד מנהל פרויקט&quot;&#xA;+&#xA;Keeps only the rows with relevant date" DisplayName="Columns name adjusments" sap:VirtualizedContainerService.HintSize="479,280" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[io_dt_data.Columns("billingMethod").ColumnName]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">שיטת חיוב</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[io_dt_data.Columns("קוד חשבון מנהל פרויקט").ColumnName]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">קוד מנהל פרויקט</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="sd:DataTable">[io_dt_data]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
+    Let referenceDate = If(row.IsNull("תאריך אסמכתא"), Nothing, row.Field(Of DateTime)("תאריך אסמכתא")) ' Handle null values
+    Let endOfMonth = If(referenceDate &lt;&gt; Nothing, 
+                        New Date(referenceDate.Year, referenceDate.Month, DateTime.DaysInMonth(referenceDate.Year, referenceDate.Month)), 
+                        Nothing) ' End of the month based on referenceDate
+    Let paymentCondition = If(row.IsNull("תנאי תשלום"), "", row.Field(Of String)("תנאי תשלום")) ' Handle null or empty paymentCondition
+    Let daysToAdd = If(paymentCondition.Contains("שוטף+"), 
+                       Convert.ToInt32(System.Text.RegularExpressions.Regex.Match(paymentCondition, "\d+").Value), ' Handle "שוטף +X"
+                       If(paymentCondition.Contains("יום"), 
+                          Convert.ToInt32(System.Text.RegularExpressions.Regex.Match(paymentCondition, "\d+").Value), 
+                          0)) ' Handle "X יום" or fallback to 0
+    Let calculatedDate =endOfMonth.AddDays(daysToAdd)' Add days only if endOfMonth is valid
+    Let valueDate = If(row.IsNull("תאריך ערך"), Nothing, row.Field(Of DateTime)("תאריך ערך")) ' Properly use "תאריך ערך"
+Where calculatedDate &lt;= valueDate AndAlso row("סטטוס").ToString="נרשם" ' Check valid dates and comparison
+Select row).CopyToDataTable]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:MultipleAssign>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="577,626" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
       <ueab:ExcelProcessScopeX.Body>
         <ActivityAction x:TypeArguments="ui:IExcelProcess">
           <ActivityAction.Argument>

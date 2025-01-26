@@ -205,7 +205,7 @@
                       <av:PointCollection x:Key="ConnectorLocation">290,820 290,845</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:MultipleAssign sap2010:Annotation.AnnotationText=" &#xA;Changes the column named &quot;billing method&quot; to &quot;שיטת חיוב&quot;&#xA;+&#xA;Changes the column named &quot;קוד חשבון מנהל פרויקט&quot; to &quot;קוד מנהל פרויקט&quot;&#xA;+&#xA;Keeps only the rows with &#xA;תאריך פעילות&#xA;from current year or previous one" DisplayName="Columns name adjusments" sap:VirtualizedContainerService.HintSize="479,341" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                  <ui:MultipleAssign sap2010:Annotation.AnnotationText="" DisplayName="Columns name adjusments" sap:VirtualizedContainerService.HintSize="479,271" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                         <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_11">
@@ -214,8 +214,9 @@
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
                             <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
-     Let taarichErech As DateTime =row.Field(Of DateTime)("תאריך ערך")
-	 Let dueDate As Boolean  = taarichErech &gt;=Today.AddMonths(-2) 
+     Let taarichErech As DateTime =row.Field(Of DateTime)("תאריך אסמכתא")
+	 Let nextMonth As dateTime=New Date(Today.AddMonths(1).Year,Today.AddMonths(1).Month,10)
+	 Let dueDate As Boolean  =  taarichErech&lt;nextMonth
  Where  dueDate
  Select row).CopyToDataTable()]</InArgument>
                           </ui:AssignOperation.Value>
@@ -247,6 +248,16 @@ Let currentYear As Integer = DateTime.Now.Year
 Let previousYear As Integer = currentYear - 1
 Where parsedDate.Year = currentYear OrElse 
 			parsedDate.Year = previousYear
+Select row).CopyToDataTable]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="sd:DataTable">[io_dt_data]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
+Where row("סטטוס").ToString="נרשם"
 Select row).CopyToDataTable]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
