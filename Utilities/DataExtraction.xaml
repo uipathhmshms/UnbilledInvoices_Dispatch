@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>951,1456</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1439.0000000000002,762</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DataExtraction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -116,15 +116,20 @@
       <AssemblyReference>System.CodeDom</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap2010:Annotation.AnnotationText="Connects to DB and retrieves the data,&#xA;Merge Invoices and Budget  data,&#xA;Filters and sorts the merges data" DisplayName="DataExtraction" sap:VirtualizedContainerService.HintSize="961,1391" sap2010:WorkflowViewState.IdRef="Flowchart_4">
+  <Flowchart sap2010:Annotation.AnnotationText="Connects to DB and retrieves the data,&#xA;Merge Invoices and Budget  data,&#xA;Filters and sorts the merges data" DisplayName="DataExtraction" sap:VirtualizedContainerService.HintSize="1024,863" sap2010:WorkflowViewState.IdRef="Flowchart_4">
     <Flowchart.Variables>
       <Variable x:TypeArguments="ui:DatabaseConnection" Name="dbConn_connection" />
       <Variable x:TypeArguments="x:String" Name="str_connectionString" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_InvoicesData" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_budgetData" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_employeeData" />
+      <Variable x:TypeArguments="scg:IEnumerable(sd:DataRow)" Name="test" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -132,10 +137,10 @@
         <av:Point x:Key="ShapeLocation">80,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
         <av:PointCollection x:Key="ConnectorLocation">140,40 170,40 170,40.5 190,40.5</av:PointCollection>
-        <x:Double x:Key="Height">1297</x:Double>
+        <x:Double x:Key="Height">766</x:Double>
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-        <x:Double x:Key="Width">927</x:Double>
+        <x:Double x:Key="Width">990</x:Double>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
@@ -146,7 +151,7 @@
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">190,538</av:Point>
           <av:Size x:Key="ShapeSize">200,25</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">390,550.5 420,550.5 420,67 610,67</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">390,550.5 420,550.5 420,68.5 610,68.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:DatabaseDisconnect DatabaseConnection="[dbConn_connection]" DisplayName="Disconnect from Database" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_4" />
@@ -155,11 +160,11 @@
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">610,20</av:Point>
-              <av:Size x:Key="ShapeSize">200,94</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">710,114 710,141</av:PointCollection>
+              <av:Size x:Key="ShapeSize">200,97</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">710,117 710,141</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:JoinDataTables sap2010:Annotation.AnnotationText="Joins invoices and Budget tables" DataTable1="[dt_InvoicesData]" DataTable2="[dt_budgetData]" DisplayName="Join Data Tables" sap:VirtualizedContainerService.HintSize="200,94" sap2010:WorkflowViewState.IdRef="JoinDataTables_5" JoinType="Inner" OutputDataTable="[io_dt_data]">
+          <ui:JoinDataTables sap2010:Annotation.AnnotationText="Joins invoices and Budget tables" DataTable1="[dt_budgetData]" DataTable2="[dt_InvoicesData]" DisplayName="Join Data Tables" sap:VirtualizedContainerService.HintSize="200,97" sap2010:WorkflowViewState.IdRef="JoinDataTables_5" JoinType="Inner" OutputDataTable="[io_dt_data]">
             <ui:JoinDataTables.Arguments>
               <scg:List x:TypeArguments="ui:JoinOperationArgument" Capacity="4">
                 <ui:JoinOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EQ">
@@ -180,112 +185,150 @@
             </sap:WorkflowViewStateService.ViewState>
           </ui:JoinDataTables>
           <FlowStep.Next>
-            <FlowStep x:Name="__ReferenceID6">
+            <FlowStep x:Name="__ReferenceID5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">610,141</av:Point>
-                  <av:Size x:Key="ShapeSize">200,52</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">710,193 710,211</av:PointCollection>
+                  <av:Point x:Key="ShapeLocation">493,141</av:Point>
+                  <av:Size x:Key="ShapeSize">434,113</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">710,254 710,284</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utilities\TEST.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Utilities\TEST.xaml">
-                <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="sd:DataTable" x:Key="In_dt">[io_dt_data]</InArgument>
-                </ui:InvokeWorkflowFile.Arguments>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-              </ui:InvokeWorkflowFile>
-              <FlowStep.Next>
-                <FlowStep x:Name="__ReferenceID5">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">493,211</av:Point>
-                      <av:Size x:Key="ShapeSize">434,109</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">710,320 710,340</av:PointCollection>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:MultipleAssign sap2010:Annotation.AnnotationText="Changes &quot;billiingMethod&quot; to &quot;שיטת חיוב&quot;&#xA;Changes &quot;קוד חשבון מנהל פרויקט&quot; to &quot;קוד מנהל פרויקט&quot;&#xA;Keeps only relevant rows of the dt" DisplayName="Columns name adjusments" sap:VirtualizedContainerService.HintSize="434,109" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
-                    <ui:MultipleAssign.AssignOperations>
-                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:String">[io_dt_data.Columns("billingMethod").ColumnName]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">שיטת חיוב</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:String">[io_dt_data.Columns("קוד חשבון מנהל פרויקט").ColumnName]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">קוד מנהל פרויקט</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="sd:DataTable">[io_dt_data]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
+              <ui:MultipleAssign sap2010:Annotation.AnnotationText="Changes &quot;billiingMethod&quot; to &quot;שיטת חיוב&quot;&#xA;Changes &quot;קוד חשבון מנהל פרויקט&quot; to &quot;קוד מנהל פרויקט&quot;&#xA;Keeps only relevant rows of the dt" DisplayName="Columns name adjusments" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[io_dt_data.Columns("billingMethod").ColumnName]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">שיטת חיוב</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[io_dt_data.Columns("קוד חשבון מנהל פרויקט").ColumnName]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">קוד מנהל פרויקט</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="sd:DataTable">[io_dt_data]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
 Let parsedDate = DateTime.ParseExact(row.Field(Of datetime)("תאריך פעילות").tostring, "MM/dd/yyyy hh:mm:ss", Nothing)
 Let currentYear As Integer = DateTime.Now.Year
 Let previousYear As Integer = currentYear - 1
 Where parsedDate.Year = currentYear OrElse 
 			parsedDate.Year = previousYear
 Select row).CopyToDataTable]</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="sd:DataTable">[io_dt_data]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="sd:DataTable">[io_dt_data]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
 Where row("סטטוס").ToString="נרשם"
 Select row).CopyToDataTable]</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                      </scg:List>
-                    </ui:MultipleAssign.AssignOperations>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:MultipleAssign>
+              <FlowStep.Next>
+                <FlowStep x:Name="__ReferenceID9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">610,284</av:Point>
+                      <av:Size x:Key="ShapeSize">200,272</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">710,556 710,587</av:PointCollection>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Creates a HashSet(Of String) for fast lookup of existing &quot;קוד מנהל פרויקט&quot; values in io_dt_data.&#xA;Loops through dt_budgetData and checks if &quot;קוד חשבון מנהל פרויקט&quot; exists in io_dt_data.&#xA;If missing, adds a new row to io_dt_data.&#xA;Uses HashSet for efficient lookups, making it much faster than nested loops." Code="Try&#xD;&#xA;    ' Create a clone of io_dt_data to store the final updated rows&#xD;&#xA;    Dim updatedTable As DataTable = io_dt_data.Clone()&#xD;&#xA;&#xD;&#xA;    ' Copy existing rows to the new DataTable&#xD;&#xA;    For Each existingRow As DataRow In io_dt_data.Rows&#xD;&#xA;        updatedTable.ImportRow(existingRow)&#xD;&#xA;    Next&#xD;&#xA;&#xD;&#xA;    ' Create a list of existing manager codes in io_dt_data&#xD;&#xA;    Dim existingManagerCodes As HashSet(Of String) = New HashSet(Of String)(&#xD;&#xA;        io_dt_data.AsEnumerable().Select(Function(row) row.Field(Of String)(&quot;קוד מנהל פרויקט&quot;))&#xD;&#xA;    )&#xD;&#xA;&#xD;&#xA;    ' Iterate through dt_budgetData to find missing managers&#xD;&#xA;    Dim lineNumber As Integer = 1 ' Track row number for logging&#xD;&#xA;&#xD;&#xA;    For Each budgetRow As DataRow In dt_budgetData.Rows&#xD;&#xA;        Try&#xD;&#xA;            Dim managerCode As String = budgetRow.Field(Of String)(&quot;קוד חשבון מנהל פרויקט&quot;)&#xD;&#xA;&#xD;&#xA;            ' If the manager does not exist in io_dt_data, add a new row&#xD;&#xA;            If Not existingManagerCodes.Contains(managerCode) Then&#xD;&#xA;                Dim newRow As DataRow = updatedTable.NewRow()&#xD;&#xA;                newRow(&quot;קוד מנהל פרויקט&quot;) = managerCode&#xD;&#xA;                newRow(&quot;מנהל פרוייקט&quot;) = budgetRow.Field(Of String)(&quot;מנהל פרוייקט&quot;)&#xD;&#xA;                newRow(&quot;שיטת חיוב&quot;) = &quot;&quot;&#xD;&#xA;                newRow(&quot;שם לקוח&quot;) = &quot;&quot;&#xD;&#xA;                newRow(&quot;קוד סעיף תקציבי&quot;) = &quot;NONE&quot;&#xD;&#xA;                newRow(&quot;סעיף תקציבי&quot;) = &quot;&quot;&#xD;&#xA;                newRow(&quot;סכום חייב במע&quot;&quot;מ במטבע עסקה&quot;) =0&#xD;&#xA;                newRow(&quot;תאריך פעילות&quot;) = DBNull.Value&#xD;&#xA;                newRow(&quot;תאריך אסמכתא&quot;) = DBNull.Value&#xD;&#xA;                newRow(&quot;סטטוס&quot;) = &quot;&quot;&#xD;&#xA;&#xD;&#xA;                ' Add the new row to the cloned DataTable&#xD;&#xA;                updatedTable.Rows.Add(newRow)&#xD;&#xA;                Console.WriteLine($&quot;ROW ADDED: {managerCode}&quot;)&#xD;&#xA;&#xD;&#xA;                ' Add to HashSet to prevent duplicate checks&#xD;&#xA;                existingManagerCodes.Add(managerCode)&#xD;&#xA;            End If&#xD;&#xA;&#xD;&#xA;        Catch ex As Exception&#xD;&#xA;            ' Log error message with failing row number&#xD;&#xA;            Console.WriteLine($&quot;Error processing row {lineNumber}: {ex.Message}&quot;)&#xD;&#xA;&#xD;&#xA;            ' Throw an exception to stop execution if there's an error&#xD;&#xA;            Throw New System.Exception($&quot;Processing failed at row {lineNumber}: {ex.Message}&quot;)&#xD;&#xA;        End Try&#xD;&#xA;&#xD;&#xA;        lineNumber += 1 ' Increment line number tracker&#xD;&#xA;    Next&#xD;&#xA;&#xD;&#xA;    ' Assign the modified table back to io_dt_data&#xD;&#xA;    io_dt_data = updatedTable&#xD;&#xA;&#xD;&#xA;Catch ex As Exception&#xD;&#xA;    ' Log any critical failure in the entire process&#xD;&#xA;    Console.WriteLine($&quot;Critical error: {ex.Message}&quot;)&#xD;&#xA;    Throw New System.Exception($&quot;Critical failure: {ex.Message}&quot;)&#xD;&#xA;End Try&#xD;&#xA;" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="334,289" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+                    <ui:InvokeCode.Arguments>
+                      <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_data">
+                        <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="io_dt_data" />
+                      </InOutArgument>
+                      <InArgument x:TypeArguments="sd:DataTable" x:Key="dt_budgetData">
+                        <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_budgetData" />
+                      </InArgument>
+                    </ui:InvokeCode.Arguments>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                  </ui:MultipleAssign>
+                  </ui:InvokeCode>
                   <FlowStep.Next>
-                    <FlowStep x:Name="__ReferenceID9">
+                    <FlowStep x:Name="__ReferenceID8">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">610,340</av:Point>
-                          <av:Size x:Key="ShapeSize">200,94</av:Size>
+                          <av:Point x:Key="ShapeLocation">610,587</av:Point>
+                          <av:Size x:Key="ShapeSize">200,53</av:Size>
+                          <av:PointCollection x:Key="ConnectorLocation">710,640 710,669</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:JoinDataTables sap2010:Annotation.AnnotationText="Joins invoices and Budget with employee" DataTable1="[io_dt_data]" DataTable2="[dt_employeeData]" DisplayName="Join Data Tables" sap:VirtualizedContainerService.HintSize="200,94" sap2010:WorkflowViewState.IdRef="JoinDataTables_6" JoinType="Inner" OutputDataTable="[io_dt_data]">
-                        <ui:JoinDataTables.Arguments>
-                          <scg:List x:TypeArguments="ui:JoinOperationArgument" Capacity="4">
-                            <ui:JoinOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EQ">
-                              <ui:JoinOperationArgument.Column1>
-                                <InArgument x:TypeArguments="x:String">["קוד מנהל פרויקט"]</InArgument>
-                              </ui:JoinOperationArgument.Column1>
-                              <ui:JoinOperationArgument.Column2>
-                                <InArgument x:TypeArguments="x:String">["קוד סוכן"]</InArgument>
-                              </ui:JoinOperationArgument.Column2>
-                            </ui:JoinOperationArgument>
-                          </scg:List>
-                        </ui:JoinDataTables.Arguments>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </ui:JoinDataTables>
+                      <ui:CommentOut sap:VirtualizedContainerService.HintSize="200,53" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                        <ui:CommentOut.Body>
+                          <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                            <Assign sap:VirtualizedContainerService.HintSize="200,53" sap2010:WorkflowViewState.IdRef="Assign_7">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="sd:DataTable">[io_dt_data]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From r In io_dt_data.AsEnumerable().Concat(
+              From b In dt_budgetData.AsEnumerable()
+              Where Not io_dt_data.AsEnumerable().
+              Any(Function(d) d.Field(Of String)("קוד מנהל פרויקט") = b.Field(Of String)("קוד חשבון מנהל פרויקט"))
+              Select io_dt_data.LoadDataRow(New Object() {
+                  b.Field(Of String)("קוד חשבון מנהל פרויקט"),
+                  b.Field(Of String)("מנהל פרוייקט"),
+                  "", "", "", "", 0, DBNull.Value, DBNull.Value, "",""}, False)
+            )).CopyToDataTable()]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </ui:CommentOut.Body>
+                      </ui:CommentOut>
+                      <FlowStep.Next>
+                        <FlowStep x:Name="__ReferenceID7">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">610,669</av:Point>
+                              <av:Size x:Key="ShapeSize">200,97</av:Size>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:JoinDataTables sap2010:Annotation.AnnotationText="Joins invoices and Budget with employee" DataTable1="[io_dt_data]" DataTable2="[dt_employeeData]" DisplayName="Join Data Tables" sap:VirtualizedContainerService.HintSize="200,97" sap2010:WorkflowViewState.IdRef="JoinDataTables_6" JoinType="Inner" OutputDataTable="[io_dt_data]">
+                            <ui:JoinDataTables.Arguments>
+                              <scg:List x:TypeArguments="ui:JoinOperationArgument" Capacity="4">
+                                <ui:JoinOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EQ">
+                                  <ui:JoinOperationArgument.Column1>
+                                    <InArgument x:TypeArguments="x:String">["קוד מנהל פרויקט"]</InArgument>
+                                  </ui:JoinOperationArgument.Column1>
+                                  <ui:JoinOperationArgument.Column2>
+                                    <InArgument x:TypeArguments="x:String">["קוד סוכן"]</InArgument>
+                                  </ui:JoinOperationArgument.Column2>
+                                </ui:JoinOperationArgument>
+                              </scg:List>
+                            </ui:JoinDataTables.Arguments>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:JoinDataTables>
+                        </FlowStep>
+                      </FlowStep.Next>
                     </FlowStep>
                   </FlowStep.Next>
                 </FlowStep>
@@ -299,11 +342,11 @@ Select row).CopyToDataTable]</InArgument>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">190,290</av:Point>
-          <av:Size x:Key="ShapeSize">200,94</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">290,384 290,404</av:PointCollection>
+          <av:Size x:Key="ShapeSize">200,97</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">290,387 290,404</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ExecuteQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Extract budget data from stored procedure" ConnectionString="[str_connectionString]" DataTable="[dt_budgetData]" DisplayName="Extract Budget Data" sap:VirtualizedContainerService.HintSize="200,94" sap2010:WorkflowViewState.IdRef="ExecuteQuery_8" ProviderName="Microsoft.Data.SqlClient" Sql="[&quot;USE [Halperin]; &quot; &amp; _&#xA;&quot;DECLARE @return_value int; &quot; &amp; _&#xA;&quot;EXEC @return_value = [dbo].[sp_ProjectBudgetTopic]; &quot; &amp; _&#xA;&quot;SELECT 'Return Value' = @return_value;&quot;]">
+      <ui:ExecuteQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Extract budget data from stored procedure" ConnectionString="[str_connectionString]" DataTable="[dt_budgetData]" DisplayName="Extract Budget Data" sap:VirtualizedContainerService.HintSize="200,97" sap2010:WorkflowViewState.IdRef="ExecuteQuery_8" ProviderName="Microsoft.Data.SqlClient" Sql="[&quot;USE [Halperin]; &quot; &amp; _&#xA;&quot;DECLARE @return_value int; &quot; &amp; _&#xA;&quot;EXEC @return_value = [dbo].[sp_ProjectBudgetTopic]; &quot; &amp; _&#xA;&quot;SELECT 'Return Value' = @return_value;&quot;]">
         <ui:ExecuteQuery.Parameters>
           <scg:Dictionary x:TypeArguments="x:String, Argument" />
         </ui:ExecuteQuery.Parameters>
@@ -314,15 +357,15 @@ Select row).CopyToDataTable]</InArgument>
         </sap:WorkflowViewStateService.ViewState>
       </ui:ExecuteQuery>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID8">
+        <FlowStep x:Name="__ReferenceID6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">190,404</av:Point>
-              <av:Size x:Key="ShapeSize">200,109</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">290,513 290,538</av:PointCollection>
+              <av:Size x:Key="ShapeSize">200,113</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">290,517 290,538</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ExecuteQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Extract employee data from stored procedure in order to get the manager emails" ConnectionString="[str_connectionString]" DataTable="[dt_employeeData]" DisplayName="Extract Employee Data" sap:VirtualizedContainerService.HintSize="200,109" sap2010:WorkflowViewState.IdRef="ExecuteQuery_9" ProviderName="Microsoft.Data.SqlClient" Sql="[&quot;USE [Halperin]; &quot; &amp; _&#xA;&quot;DECLARE @return_value int; &quot; &amp; _&#xA;&quot;EXEC @return_value = [dbo].[sp_Employees]; &quot; &amp; _&#xA;&quot;SELECT 'Return Value' = @return_value;&quot;]">
+          <ui:ExecuteQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Extract employee data from stored procedure in order to get the manager emails" ConnectionString="[str_connectionString]" DataTable="[dt_employeeData]" DisplayName="Extract Employee Data" sap:VirtualizedContainerService.HintSize="200,113" sap2010:WorkflowViewState.IdRef="ExecuteQuery_9" ProviderName="Microsoft.Data.SqlClient" Sql="[&quot;USE [Halperin]; &quot; &amp; _&#xA;&quot;DECLARE @return_value int; &quot; &amp; _&#xA;&quot;EXEC @return_value = [dbo].[sp_Employees]; &quot; &amp; _&#xA;&quot;SELECT 'Return Value' = @return_value;&quot;]">
             <ui:ExecuteQuery.Parameters>
               <scg:Dictionary x:TypeArguments="x:String, Argument" />
             </ui:ExecuteQuery.Parameters>
@@ -342,11 +385,11 @@ Select row).CopyToDataTable]</InArgument>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">190,176</av:Point>
-          <av:Size x:Key="ShapeSize">200,94</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">290,270 290,290</av:PointCollection>
+          <av:Size x:Key="ShapeSize">200,97</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">290,273 290,290</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Extract Invoices data from stored procedure" DataTable="[dt_InvoicesData]" DisplayName="Extract Invoices Data" ExistingDbConnection="[dbConn_connection]" sap:VirtualizedContainerService.HintSize="200,94" sap2010:WorkflowViewState.IdRef="ExecuteQuery_7" Sql="[&quot;USE [Halperin]; &quot; &amp; _&#xA;&quot;DECLARE @return_value int; &quot; &amp; _&#xA;&quot;EXEC @return_value = [dbo].[sp_Invoices_RPA]; &quot; &amp; _&#xA;&quot;SELECT 'Return Value' = @return_value;&quot;]">
+      <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Extract Invoices data from stored procedure" DataTable="[dt_InvoicesData]" DisplayName="Extract Invoices Data" ExistingDbConnection="[dbConn_connection]" sap:VirtualizedContainerService.HintSize="200,97" sap2010:WorkflowViewState.IdRef="ExecuteQuery_7" Sql="[&quot;USE [Halperin]; &quot; &amp; _&#xA;&quot;DECLARE @return_value int; &quot; &amp; _&#xA;&quot;EXEC @return_value = [dbo].[sp_Invoices_RPA]; &quot; &amp; _&#xA;&quot;SELECT 'Return Value' = @return_value;&quot;]">
         <ui:ExecuteQuery.Parameters>
           <scg:Dictionary x:TypeArguments="x:String, Argument" />
         </ui:ExecuteQuery.Parameters>
@@ -364,11 +407,11 @@ Select row).CopyToDataTable]</InArgument>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">190,101</av:Point>
-          <av:Size x:Key="ShapeSize">200,52</av:Size>
+          <av:Size x:Key="ShapeSize">200,53</av:Size>
           <av:PointCollection x:Key="ConnectorLocation">290,153 290,176</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:DatabaseConnect DisplayName="Connect to Database" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="DatabaseConnect_4" ProviderName="Microsoft.Data.SqlClient" ConnectionString="[str_connectionString]" DatabaseConnection="[dbConn_connection]" />
+      <ui:DatabaseConnect DisplayName="Connect to Database" sap:VirtualizedContainerService.HintSize="200,53" sap2010:WorkflowViewState.IdRef="DatabaseConnect_4" ProviderName="Microsoft.Data.SqlClient" ConnectionString="[str_connectionString]" DatabaseConnection="[dbConn_connection]" />
       <FlowStep.Next>
         <x:Reference>__ReferenceID2</x:Reference>
       </FlowStep.Next>
@@ -377,11 +420,11 @@ Select row).CopyToDataTable]</InArgument>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">190,0</av:Point>
-          <av:Size x:Key="ShapeSize">200,81</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">290,81 290,101</av:PointCollection>
+          <av:Size x:Key="ShapeSize">200,83</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">290,83 290,101</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Generate Connection String" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_7">
+      <Sequence DisplayName="Generate Connection String" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_7">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="str_dbName" />
           <Variable x:TypeArguments="x:String" Name="str_serverName" />
@@ -437,193 +480,9 @@ Select row).CopyToDataTable]</InArgument>
         <x:Reference>__ReferenceID3</x:Reference>
       </FlowStep.Next>
     </FlowStep>
-    <FlowStep sap2010:WorkflowViewState.IdRef="FlowStep_8">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">520,1068.5</av:Point>
-          <av:Size x:Key="ShapeSize">200,83</av:Size>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:FilterDataTable sap2010:Annotation.AnnotationText="" DataTable="[io_dt_data]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="FilterDataTable_6" OutputDataTable="[io_dt_data]" SelectColumnsMode="Keep">
-        <ui:FilterDataTable.Filters>
-          <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
-            <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
-          </scg:List>
-        </ui:FilterDataTable.Filters>
-        <ui:FilterDataTable.SelectColumns>
-          <scg:List x:TypeArguments="InArgument" Capacity="16">
-            <InArgument x:TypeArguments="x:String">["קוד חשבון מנהל פרויקט"]</InArgument>
-            <InArgument x:TypeArguments="x:String">["מנהל פרוייקט"]</InArgument>
-            <InArgument x:TypeArguments="x:String">["billingMethod"]</InArgument>
-            <InArgument x:TypeArguments="x:String">["שם לקוח"]</InArgument>
-            <InArgument x:TypeArguments="x:String">["קוד סעיף תקציבי"]</InArgument>
-            <InArgument x:TypeArguments="x:String">["סעיף תקציבי"]</InArgument>
-            <InArgument x:TypeArguments="x:String">["סכום חייב במע""מ במטבע עסקה"]</InArgument>
-            <InArgument x:TypeArguments="x:String">["תאריך פעילות"]</InArgument>
-            <InArgument x:TypeArguments="x:String">["תאריך אסמכתא"]</InArgument>
-            <InArgument x:TypeArguments="x:String">["סטטוס"]</InArgument>
-          </scg:List>
-        </ui:FilterDataTable.SelectColumns>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ui:FilterDataTable>
-    </FlowStep>
     <x:Reference>__ReferenceID4</x:Reference>
     <x:Reference>__ReferenceID5</x:Reference>
     <x:Reference>__ReferenceID6</x:Reference>
-    <FlowStep>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">3,1083</av:Point>
-          <av:Size x:Key="ShapeSize">434,214</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">437,1190 487,1190</av:PointCollection>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:MultipleAssign sap2010:Annotation.AnnotationText="Keeps only rows with &quot;חשבונית מפגרת&quot; &#xA;+&#xA;Changes the column named &quot;billing method&quot; to &quot;שיטת חיוב&quot;&#xA;+&#xA;Changes the column named &quot;קוד חשבון מנהל פרויקט&quot; to &quot;קוד מנהל פרויקט&quot;&#xA;+&#xA;Keeps only the rows with &#xA;תאריך פעילות&#xA;from current year or previous one" DisplayName="Columns name adjusments" sap:VirtualizedContainerService.HintSize="434,214" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
-        <ui:MultipleAssign.AssignOperations>
-          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-            <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_14">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="sd:DataTable">[io_dt_data]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
-Let referenceDate As DateTime = If(row.IsNull("תאריך אסמכתא"), Nothing, row.Field(Of DateTime)("תאריך אסמכתא"))
-Let activiryDate As DateTime = If(row.IsNull("תאריך פעילות"), Nothing, row.Field(Of DateTime)("תאריך פעילות"))
-Let adjustedReferenceDate = If(activiryDate &lt;&gt; Nothing, activiryDate.AddMonths(1).AddDays(11), Nothing) ' הוספת חודש + 11 יום לתאריך 
-Let dueDate = If(adjustedReferenceDate &gt; referenceDate, True, False) 
-Where referenceDate &lt;&gt; Nothing AndAlso activiryDate &lt;&gt; Nothing AndAlso dueDate
-Select row).CopyToDataTable()]</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:String">[io_dt_data.Columns("billingMethod").ColumnName]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">שיטת חיוב</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:String">[io_dt_data.Columns("קוד חשבון מנהל פרויקט").ColumnName]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">קוד מנהל פרויקט</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="sd:DataTable">[io_dt_data]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
-Let parsedDate = DateTime.ParseExact(row.Field(Of datetime)("תאריך פעילות").tostring, "MM/dd/yyyy hh:mm:ss", Nothing)
-Let currentYear As Integer = DateTime.Now.Year
-Let previousYear As Integer = currentYear - 1
-Where parsedDate.Year = currentYear OrElse 
-			parsedDate.Year = previousYear
-Select row).CopyToDataTable]</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="sd:DataTable">[io_dt_data]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
- Let status = row("סטטוס").ToString
- Where status = "נרשם"
- Select row).CopyToDataTable()]</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-          </scg:List>
-        </ui:MultipleAssign.AssignOperations>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ui:MultipleAssign>
-      <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID7">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">487,1148.5</av:Point>
-              <av:Size x:Key="ShapeSize">434,83</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">300,714 300,855</av:PointCollection>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:MultipleAssign sap2010:Annotation.AnnotationText="" DisplayName="Columns name adjusments" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
-            <ui:MultipleAssign.AssignOperations>
-              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-                <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_20">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="sd:DataTable">[io_dt_data]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
-     Let taarichErech As DateTime =row.Field(Of DateTime)("תאריך אסמכתא")
-	 Let nextMonth As dateTime=New Date(Today.AddMonths(1).Year,Today.AddMonths(1).Month,10)
-	 Let dueDate As Boolean  =  taarichErech&lt;nextMonth
- Where  dueDate
- Select row).CopyToDataTable()]</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="x:String">[io_dt_data.Columns("billingMethod").ColumnName]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">שיטת חיוב</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="x:String">[io_dt_data.Columns("קוד חשבון מנהל פרויקט").ColumnName]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">קוד מנהל פרויקט</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="sd:DataTable">[io_dt_data]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
-Let parsedDate = DateTime.ParseExact(row.Field(Of datetime)("תאריך פעילות").tostring, "MM/dd/yyyy hh:mm:ss", Nothing)
-Let currentYear As Integer = DateTime.Now.Year
-Let previousYear As Integer = currentYear - 1
-Where parsedDate.Year = currentYear OrElse 
-			parsedDate.Year = previousYear
-Select row).CopyToDataTable]</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="sd:DataTable">[io_dt_data]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In io_dt_data.AsEnumerable()
-Where row("סטטוס").ToString="נרשם"
-Select row).CopyToDataTable]</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-              </scg:List>
-            </ui:MultipleAssign.AssignOperations>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:MultipleAssign>
-        </FlowStep>
-      </FlowStep.Next>
-    </FlowStep>
     <x:Reference>__ReferenceID7</x:Reference>
     <x:Reference>__ReferenceID8</x:Reference>
     <x:Reference>__ReferenceID9</x:Reference>

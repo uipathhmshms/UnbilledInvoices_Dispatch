@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1049,1823</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1638.9999999999998,2117</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Dispatch_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -46,6 +46,7 @@
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>UiPath.DataTableUtilities</x:String>
       <x:String>Newtonsoft.Json</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -116,7 +117,7 @@
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Dispatch" sap:VirtualizedContainerService.HintSize="1059,1758" sap2010:WorkflowViewState.IdRef="Sequence_18">
+  <Sequence DisplayName="Dispatch" sap:VirtualizedContainerService.HintSize="1649,2052" sap2010:WorkflowViewState.IdRef="Sequence_18">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_currentManagerId" />
       <Variable x:TypeArguments="x:String" Name="str_currentManagerName" />
@@ -128,14 +129,14 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BuildDataTable sap2010:Annotation.AnnotationText="&#xA;Initialize the output datatable" DataTable="[io_dt_dataForBulkAddQueueITems]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="997,102" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;ReportData&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;1000000&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;ReportRowsNo&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;EmailAddress&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Reference&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;80&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Priority&quot; msdata:Caption=&quot;&quot; default=&quot;Low&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;20&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
+    <ui:BuildDataTable sap2010:Annotation.AnnotationText="&#xA;Initialize the output datatable" DataTable="[io_dt_dataForBulkAddQueueITems]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="1587,104" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;ReportData&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;1000000&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;ReportRowsNo&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;EmailAddress&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Reference&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;80&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Priority&quot; msdata:Caption=&quot;&quot; default=&quot;Low&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;20&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BuildDataTable>
-    <ui:MultipleAssign sap2010:Annotation.AnnotationText="initialize the current manager identifier with the first manager of the given datatable&#xA;+&#xA;sets the start position to be the first row of the datatable&#xA;" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="997,265" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
+    <ui:MultipleAssign sap2010:Annotation.AnnotationText="initialize the current manager identifier with the first manager of the given datatable&#xA;+&#xA;sets the start position to be the first row of the datatable&#xA;" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1587,271" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_22">
@@ -170,19 +171,19 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[int_loopIndex]" DataTable="[in_dt_data]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="997,1019" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[int_loopIndex]" DataTable="[in_dt_data]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1587,1303" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="963,833" sap2010:WorkflowViewState.IdRef="Sequence_19">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1553,1115" sap2010:WorkflowViewState.IdRef="Sequence_19">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Flowchart sap:VirtualizedContainerService.HintSize="921,745" sap2010:WorkflowViewState.IdRef="Flowchart_6">
+            <Flowchart sap:VirtualizedContainerService.HintSize="1511,1027" sap2010:WorkflowViewState.IdRef="Flowchart_6">
               <Flowchart.Variables>
                 <Variable x:TypeArguments="scg:List(scg:Dictionary(x:String, x:Object))" Name="dic_currentManagerReportDic" />
                 <Variable x:TypeArguments="sd:DataTable" Name="dt_currentManagerReportDt" />
@@ -192,35 +193,35 @@
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                  <av:Point x:Key="ShapeLocation">530,42.5</av:Point>
+                  <av:Point x:Key="ShapeLocation">560,52.5</av:Point>
                   <av:Size x:Key="ShapeSize">60,75</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">560,117.5 560,147.5</av:PointCollection>
-                  <x:Double x:Key="Width">887</x:Double>
-                  <x:Double x:Key="Height">708.5</x:Double>
+                  <av:PointCollection x:Key="ConnectorLocation">590,127.5 590,157.5 590.5,157.5 590.5,297.5</av:PointCollection>
+                  <x:Double x:Key="Width">1477</x:Double>
+                  <x:Double x:Key="Height">989.5</x:Double>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <Flowchart.StartNode>
-                <x:Reference>__ReferenceID7</x:Reference>
+                <x:Reference>__ReferenceID8</x:Reference>
               </Flowchart.StartNode>
-              <FlowDecision x:Name="__ReferenceID7" Condition="[Not CurrentRow(&quot;קוד מנהל פרויקט&quot;).tostring.equals(str_currentManagerId) OrElse&#xA;int_loopIndex=(in_dt_data.RowCount-1)]" DisplayName="Reached to a new manager?" sap:VirtualizedContainerService.HintSize="154,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
+              <FlowDecision x:Name="__ReferenceID8" Condition="[Not CurrentRow(&quot;קוד מנהל פרויקט&quot;).tostring.equals(str_currentManagerId) OrElse&#xA;int_loopIndex=(in_dt_data.RowCount-1)]" DisplayName="Reached to a new manager?" sap:VirtualizedContainerService.HintSize="155,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <av:Point x:Key="ShapeLocation">483,147.5</av:Point>
-                    <av:Size x:Key="ShapeSize">154,87</av:Size>
-                    <av:PointCollection x:Key="TrueConnector">483,191 434,191</av:PointCollection>
-                    <av:PointCollection x:Key="FalseConnector">637,191 687,191</av:PointCollection>
+                    <av:Point x:Key="ShapeLocation">513,297.5</av:Point>
+                    <av:Size x:Key="ShapeSize">155,87</av:Size>
+                    <av:PointCollection x:Key="TrueConnector">513,341 217,341 217,381.5</av:PointCollection>
+                    <av:PointCollection x:Key="FalseConnector">668,341 718,341</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <FlowDecision.True>
                   <FlowStep x:Name="__ReferenceID2" sap2010:WorkflowViewState.IdRef="FlowStep_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <av:Point x:Key="ShapeLocation">0,121.5</av:Point>
-                        <av:Size x:Key="ShapeSize">434,139</av:Size>
-                        <av:PointCollection x:Key="ConnectorLocation">217,260.5 216,260.5 216,280.5</av:PointCollection>
+                        <av:Point x:Key="ShapeLocation">0,381.5</av:Point>
+                        <av:Size x:Key="ShapeSize">434,145</av:Size>
+                        <av:PointCollection x:Key="ConnectorLocation">217,526.5 216,526.5 216,540.5</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Creates a temporary datatable that contains only the data of the current manager &#xA;+&#xA;Creates a corresponding dictionary from that temp datatable (neccessary for the queue item insertion)" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="434,139" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
+                    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Creates a temporary datatable that contains only the data of the current manager &#xA;+&#xA;Creates a corresponding dictionary from that temp datatable (neccessary for the queue item insertion)" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="434,145" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
                       <ui:MultipleAssign.AssignOperations>
                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
@@ -252,22 +253,22 @@
                       <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_2">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <av:Point x:Key="ShapeLocation">116,280.5</av:Point>
-                            <av:Size x:Key="ShapeSize">200,52</av:Size>
-                            <av:PointCollection x:Key="ConnectorLocation">216,332.5 216,352.5 217,352.5</av:PointCollection>
+                            <av:Point x:Key="ShapeLocation">116,540.5</av:Point>
+                            <av:Size x:Key="ShapeSize">200,53</av:Size>
+                            <av:PointCollection x:Key="ConnectorLocation">216,593.5 216,612.5 217,612.5</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Created a temp data table with current manager data called&quot; + dt_currentManagerReportDt.ToString() + &quot;&quot;]" />
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,53" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Created a temp data table with current manager data called&quot; + dt_currentManagerReportDt.ToString() + &quot;&quot;]" />
                         <FlowStep.Next>
                           <FlowStep x:Name="__ReferenceID3" sap2010:WorkflowViewState.IdRef="FlowStep_3">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <av:Point x:Key="ShapeLocation">0,352.5</av:Point>
-                                <av:Size x:Key="ShapeSize">434,83</av:Size>
-                                <av:PointCollection x:Key="ConnectorLocation">217,435.5 216,435.5 216,455.5</av:PointCollection>
+                                <av:Point x:Key="ShapeLocation">0,612.5</av:Point>
+                                <av:Size x:Key="ShapeSize">434,84</av:Size>
+                                <av:PointCollection x:Key="ConnectorLocation">217,696.5 216,696.5 216,715.5</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:MultipleAssign sap2010:Annotation.AnnotationText="add to queue items datatable" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="MultipleAssign_12">
+                            <ui:MultipleAssign sap2010:Annotation.AnnotationText="add to queue items datatable" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,148" sap2010:WorkflowViewState.IdRef="MultipleAssign_12">
                               <ui:MultipleAssign.AssignOperations>
                                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_27">
@@ -277,7 +278,9 @@
                                     <ui:AssignOperation.Value>
                                       <InArgument x:TypeArguments="sd:DataRow" xml:space="preserve">[io_dt_dataForBulkAddQueueITems.Rows.Add(Newtonsoft.Json.JsonConvert.SerializeObject(
 dic_currentManagerReportDic),
-dt_currentManagerReportDt.RowCount,
+If(CurrentRow("קוד סעיף תקציבי").tostring="NONE",
+	0,
+	dt_currentManagerReportDt.RowCount),
 "LidorM@hms.co.il",
 str_currentManagerName+"_"+str_currentManagerId+"_"+Now.ToString("dd/MM/yyyy")
 )]</InArgument>
@@ -295,22 +298,22 @@ str_currentManagerName+"_"+str_currentManagerId+"_"+Now.ToString("dd/MM/yyyy")
                               <FlowStep x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_4">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <av:Point x:Key="ShapeLocation">116,455.5</av:Point>
-                                    <av:Size x:Key="ShapeSize">200,52</av:Size>
-                                    <av:PointCollection x:Key="ConnectorLocation">216,507.5 216,527.5 217,527.5</av:PointCollection>
+                                    <av:Point x:Key="ShapeLocation">116,715.5</av:Point>
+                                    <av:Size x:Key="ShapeSize">200,53</av:Size>
+                                    <av:PointCollection x:Key="ConnectorLocation">216,768.5 216,787.5 217,787.5</av:PointCollection>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Items datatable was appended with the following row :&quot; + datarow_dr.ToString()]" />
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,53" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Items datatable was appended with the following row :&quot; + datarow_dr.ToString()]" />
                                 <FlowStep.Next>
                                   <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_5">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <av:Point x:Key="ShapeLocation">0,527.5</av:Point>
-                                        <av:Size x:Key="ShapeSize">434,109</av:Size>
-                                        <av:PointCollection x:Key="ConnectorLocation">217,636.5 216,636.5 216,656.5</av:PointCollection>
+                                        <av:Point x:Key="ShapeLocation">0,787.5</av:Point>
+                                        <av:Size x:Key="ShapeSize">434,113</av:Size>
+                                        <av:PointCollection x:Key="ConnectorLocation">217,900.5 216,900.5 216,916.5</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Sets current manager identifier to be current one &#xA;+&#xA;adjust the start position " DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,235" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
+                                    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Sets current manager identifier to be current one &#xA;+&#xA;adjust the start position " DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
                                       <ui:MultipleAssign.AssignOperations>
                                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                           <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_28">
@@ -349,11 +352,11 @@ str_currentManagerName+"_"+str_currentManagerId+"_"+Now.ToString("dd/MM/yyyy")
                                       <FlowStep x:Name="__ReferenceID6" sap2010:WorkflowViewState.IdRef="FlowStep_6">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <av:Point x:Key="ShapeLocation">116,656.5</av:Point>
-                                            <av:Size x:Key="ShapeSize">200,52</av:Size>
+                                            <av:Point x:Key="ShapeLocation">116,916.5</av:Point>
+                                            <av:Size x:Key="ShapeSize">200,53</av:Size>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Values were assigned:&quot;+ str_currentManagerId.ToString()+ &quot; &quot; + str_currentManagerName.ToString()+ &quot; &quot; + int_startPosition.ToString()]" />
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,53" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Values were assigned:&quot;+ str_currentManagerId.ToString()+ &quot; &quot; + str_currentManagerName.ToString()+ &quot; &quot; + int_startPosition.ToString()]" />
                                       </FlowStep>
                                     </FlowStep.Next>
                                   </FlowStep>
@@ -370,7 +373,7 @@ str_currentManagerName+"_"+str_currentManagerId+"_"+Now.ToString("dd/MM/yyyy")
                   <FlowStep x:Name="__ReferenceID1" sap2010:WorkflowViewState.IdRef="FlowStep_7">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <av:Point x:Key="ShapeLocation">687,153.5</av:Point>
+                        <av:Point x:Key="ShapeLocation">718,303.5</av:Point>
                         <av:Size x:Key="ShapeSize">200,75</av:Size>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
@@ -385,11 +388,57 @@ str_currentManagerName+"_"+str_currentManagerId+"_"+Now.ToString("dd/MM/yyyy")
               <x:Reference>__ReferenceID4</x:Reference>
               <x:Reference>__ReferenceID5</x:Reference>
               <x:Reference>__ReferenceID6</x:Reference>
+              <FlowDecision sap2010:Annotation.AnnotationText="יש מנהלים שנוספו עם שורה ריקה כי אין עבורם חשבונית פתוחה אבל התהליך כן אמור לשלוח עבורם מייל(ללא דוח)&#xD;&#xA;האינדיקציה לשורה ריקה תהיה לפי העמודה סעיף תקציבי&#xD;&#xA;אם עמודה זו ריקה - אז מדובר בשורה &quot;פיקטיבית&quot; שאמורה ליצור רק שליחת מייל, ללא דוח" DisplayName="Is Report Needed?" sap:VirtualizedContainerService.HintSize="104,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
+                <FlowDecision.Condition>
+                  <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="CurrentRow(&quot;קוד סעיף תקציבי&quot;).ToString&lt;&gt;&quot;&quot;" />
+                </FlowDecision.Condition>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">828,167.5</av:Point>
+                    <av:Size x:Key="ShapeSize">104,87</av:Size>
+                    <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                    <av:PointCollection x:Key="FalseConnector">932,211 962,211 962,211.5 1043,211.5</av:PointCollection>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <FlowDecision.False>
+                  <FlowStep x:Name="__ReferenceID7">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <av:Point x:Key="ShapeLocation">1043,169.5</av:Point>
+                        <av:Size x:Key="ShapeSize">434,84</av:Size>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:MultipleAssign sap2010:Annotation.AnnotationText="add to queue items datatable" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="434,84" sap2010:WorkflowViewState.IdRef="MultipleAssign_14">
+                      <ui:MultipleAssign.AssignOperations>
+                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                          <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_31">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="sd:DataRow">[datarow_dr]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="sd:DataRow" xml:space="preserve">[io_dt_dataForBulkAddQueueITems.Rows.Add("",0,
+"LidorM@hms.co.il",
+str_currentManagerName+"_"+str_currentManagerId+"_"+Now.ToString("dd/MM/yyyy")
+)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                        </scg:List>
+                      </ui:MultipleAssign.AssignOperations>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:MultipleAssign>
+                  </FlowStep>
+                </FlowDecision.False>
+              </FlowDecision>
+              <x:Reference>__ReferenceID7</x:Reference>
             </Flowchart>
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
-    <ui:LogMessage sap:VirtualizedContainerService.HintSize="997,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;For each data row, checks if manager is new, if so, creates a temporary data table, converts it to a dictionary and saves it. Then adds a queue item to the queue with the dictionary, number of rows and email. Otherwise, continues to the next iteration.&quot;]" />
+    <ui:LogMessage sap:VirtualizedContainerService.HintSize="1587,143" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;For each data row, checks if manager is new, if so, creates a temporary data table, converts it to a dictionary and saves it. Then adds a queue item to the queue with the dictionary, number of rows and email. Otherwise, continues to the next iteration.&quot;]" />
   </Sequence>
 </Activity>
